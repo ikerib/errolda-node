@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+require('dotenv').config();
+
+
 
 var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'pasaia',
-    database : 'errolda'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database : process.env.DB_NAME
 });
 
 connection.connect();
@@ -30,7 +33,7 @@ router.get('/nan/:id', function(req, res, next) {
         }
 
         res.json(results);
-        connection.end();
+
     });
 });
 
