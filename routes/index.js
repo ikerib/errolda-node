@@ -32,6 +32,7 @@ router.get('/nan/:id', function(req, res, next) {
             return res.json({ errors: ["Ez da topatu"] });
         }
 
+        res.statusCode(200);
         res.json(results);
 
     });
