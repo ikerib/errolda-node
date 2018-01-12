@@ -33,7 +33,7 @@ router.get('/nan/:id', function(req, res, next) {
         }
 
         res.statusCode= 200;
-        res.json(results);
+        return res.json(results);
 
     });
 });
